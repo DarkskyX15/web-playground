@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./BackG.css">
+    <link rel="stylesheet" href="./MyCard.css">
+    <title>Profile</title>
+    <style>
+
+        div.cards-row {
+            /* 设置3d变化 */
+            transform-origin: center;
+            transform-style: preserve-3d;
+            /* 添加透视效果 */
+            perspective: 1000px;
+            perspective-origin: center;
+        }
+
+        div.cards-row >
+        div.card {
+            margin: 20px;
+            transition-delay: 50ms;
+        }
+
+        /* 当鼠标所有卡片的父元素点shell上时，
+        所有卡片像Y轴翻转20度 */
+        div.cards-row >
+        div.card.h_left {
+            transform: rotateY(20deg);
+        }
+
+        /* 当鼠标悬浮在当前卡片上时，当前卡片的翻转角度为0，
+        并放大一点二五倍，加个阴影 */
+        div.cards-row >
+        div.card.h_on {
+            transform: rotateY(0deg);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
+            z-index: 10;
+        }
+
+        /* 当鼠标悬浮在卡片上时，
+        当前卡片后面的所有卡片全部都反向翻转负20度 */
+        div.cards-row >
+        div.card.h_right {
+            transform: rotateY(-20deg);
+        }
+
+        div.btn{
+            position: absolute;
+            bottom: 0px;
+
+            margin: 40px;
+            margin-bottom: 80px;
+            text-align: center;
+            z-index: 2;
+        }
+
+        div.btn >
+        a {
+            text-decoration: none;
+            background-color: #3e29f6;
+            color: #f2f2f2;
+            padding: 10px 8px;
+            border-radius: 3px;
+            display: inline-flex;
+            transition: 0.3s;
+        }
+
+        div.btn >
+        a:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg-effects"></div>
+
+    <div class="cards-effects">
+        <div class="cards-row">
+            <div class="card">
+                <div class="img">
+                    <img src="./img/pic.png">
+                </div>
+                <div class="top-text">
+                    <h2>^u^</h2>
+                </div>
+                <div class="bottom-text">
+                    <p>temptation。</p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="img">
+                    <img src="./img/pic.png">
+                </div>
+                <div class="top-text">
+                    <h2>Zan</h2>
+                </div>
+                <div class="bottom-text">
+                    <p>The style in the painting integrates temptation, fantasy and strangeness
+                    </p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="img">
+                    <img src="./img/pic.png">
+                </div>
+                <div class="top-text">
+                    <h2>Zeed</h2>
+                </div>
+                <div class="bottom-text">
+                    <p>The style in the painting integrates temptation, fantasy and strangeness
+                    </p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="img">
+                    <img src="./img/pic.png">
+                </div>
+                <div class="top-text">
+                    <h2>ZaChn</h2>
+                </div>
+                <div class="bottom-text">
+                    <p>The style in the painting integrates temptation, fantasy and strangeness
+                    </p>
+                </div>
+            </div>
+            <div class="card">
+                <div class="img">
+                    <img src="./img/pic.png">
+                </div>
+                <div class="top-text">
+                    <h2>hin</h2>
+                </div>
+                <div class="bottom-text">
+                    <p>The style in the painting integrates temptation, fantasy and strangeness
+                    </p>
+                </div>
+            </div>
+        </div>
+        <div class="btn">
+            <a href="../index.html"  rel="noopener noreferrer" class="LIN">返回首页</a>
+        </div>
+    </div>
+</body>
+
+<script src="./card.js"></script>
+
+</html>

@@ -1,0 +1,218 @@
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  background-color: transparent;
+}
+
+:root {
+
+  /* 容器最小高度 */
+  --main-container-min-height: 80vh;
+
+  /* 中线 */
+  --midline-color: #137b74;
+  --midline-margin-top: 50px;
+  --midline-margin-bottom: 10px;
+  --midline-width: 10px;
+
+  /* item的上下margin */
+  --para-normal-margin: 30px;
+
+  /* 距离中线margin */
+  --box-mid-gap: 50px;
+
+  /* 占位高度 */
+  --divide-size: 200px;
+  
+  /* tittle设置 */
+  --box-title-time-color: gray;
+  --box-title-horizontal-margin: 25px;
+  --box-title-static-margin: 10px;
+  --box-title-top-margin: 15px;
+  --box-title-height: 45px;
+
+  /* item设置 */
+  --timeline-item-width: 30%;
+  --timeline-item-height: 150px;
+  --timeline-item-max-width: 300px;
+
+  /* box设置 */
+  --timeline-box-radius: 15px;
+  --timeline-box-padding: 15px;
+  --timeline-box-bg-color: #39c5bb;
+  --timeline-box-border: solid 3px #25a098;
+  --timeline-box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.5);
+
+  /* 展开动画 */
+  --box-expand-height: 200%;
+  --box-expand-width: 105%;
+  --box-expand-duration: 500ms;
+
+  /* 文字样式直接到选择器里改 */
+}
+
+div.main_container {
+  position: absolute;
+  height: auto;
+  width: auto;
+  left: 0px;
+  top: 0px;
+  right: 0px;
+  min-height: var(--main-container-min-height);
+}
+
+div.divide {
+  pointer-events: none;
+  position: relative;
+  height: var(--divide-size);
+}
+
+div.midline {
+  position: absolute;
+  left: 50%;
+  top: var(--midline-margin-top);
+  bottom: var(--midline-margin-bottom);
+  width: var(--midline-width);
+  translate: -50% 0%;
+  background-color: var(--midline-color);
+  z-index: 0;
+}
+
+div.timeline_item {
+  position: relative;
+  left: 50%;
+  width: var(--timeline-item-width);
+  height: var(--timeline-item-height);
+  margin: var(--para-normal-margin) 0px;
+  max-width: var(--timeline-item-max-width);
+  min-width: min-content;
+}
+
+div.timeline_item
+div.box {
+  top: 0px;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: var(--timeline-box-border);
+  border-radius: var(--timeline-box-radius);
+  padding: var(--timeline-box-padding);
+  padding-top: calc(
+    var(--box-title-height) + 
+    var(--timeline-box-padding)
+  );
+  background-color: var(--timeline-box-bg-color);
+  box-shadow: var(--timeline-box-shadow);
+  transition: 
+    height var(--box-expand-duration), 
+    width var(--box-expand-duration);
+  overflow: hidden;
+  z-index: 0;
+}
+
+div.timeline_item
+div.title {
+  pointer-events: none;
+  position: absolute;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  margin-top: var(--box-title-top-margin);
+  height: var(--box-title-height);
+  z-index: 1;
+}
+
+div.timeline_item
+div.title
+span {
+  display: inline-block;
+}
+
+div.timeline_item.left
+div.title {
+  flex-direction: row-reverse;
+  justify-content: right;
+  align-items: center;
+}
+
+div.timeline_item.right
+div.title {
+  flex-direction: row;
+  justify-content: left;
+  align-items: center;
+}
+
+div.timeline_item.left {
+  translate: calc(-100% - var(--box-mid-gap)) 0px;
+}
+
+div.timeline_item.right {
+  translate: calc(var(--box-mid-gap)) 0px;
+}
+
+div.timeline_item.right
+div.box {
+  left: 0px;
+}
+
+div.timeline_item.left
+div.box {
+  right: 0px;
+}
+
+div.timeline_item
+div.box:hover {
+  width: var(--box-expand-width);
+  height: var(--box-expand-height);
+}
+
+div.timeline_item
+div.title > span.main {
+  position: relative;
+  margin: 0px var(--box-title-static-margin);
+  margin-left: var(--box-title-horizontal-margin);
+
+  /* 标题文字样式 */
+  font-size: xx-large;
+  text-shadow: 1px 1px 2px black;
+  color: white;
+}
+
+div.timeline_item
+div.title > span.time {
+  position: relative;
+  margin: auto var(--box-title-static-margin);
+  margin-right: var(--box-title-horizontal-margin);
+  text-align: center;
+  padding: 3px 20px;
+  border-radius: 15px;
+  background-color: var(--box-title-time-color);
+
+  /* 标题时间文字样式 */
+  font-size: larger;
+  font-weight: bolder;
+  color: white;
+}
+
+div.timeline_item.left
+div.title > span.time {
+  margin-right: var(--box-title-static-margin);
+  margin-left: var(--box-title-horizontal-margin);
+}
+div.timeline_item.left
+div.title > span.main {
+  margin-left: var(--box-title-static-margin); 
+  margin-right: var(--box-title-horizontal-margin);
+}
+
+div.timeline_item
+div.box
+p {
+  /* 正文文字样式 */
+  color: white;
+  font-size: larger;
+  line-height: 1.5em;
+}

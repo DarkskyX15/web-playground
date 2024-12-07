@@ -1,0 +1,241 @@
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  background-color: transparent;
+  font-family: "Poppins", sans-serif;
+}
+
+/* overall container */
+
+div.cards-effects {
+  min-height: 101vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  left: 0px;
+  right: 0px;
+  align-items: center;
+  flex-wrap: nowrap;
+  justify-content: center;
+}
+
+/* single row */
+
+div.cards-effects >
+div.cards-row {
+  background-color: transparent;
+  margin: 2% 0px;
+  padding: 0px 50px;
+  position: relative;
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* ///////////
+//   card   // 
+/////////// */ 
+
+div.cards-row >
+div.card {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  align-items: stretch;
+  justify-content: flex-start;
+
+  position: relative;
+  height: 300px;
+  max-width: 350px;
+  min-width: 200px;
+  margin: 0 20px;
+  overflow: hidden;
+
+  border-radius: 25px;
+
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+  background-color: #72b0e3;
+  transition: 0.3s;
+}
+
+div.cards-row >
+div.card >
+div {
+  display: block;
+  position: relative;
+}
+
+/* img (div) */
+
+div.card >
+div.img {
+  min-height: 200px;
+  top: 0px;
+  left: 0px;
+  right: 0px;
+  margin: 5px;
+  transition: all 0.3s;
+  border-radius: 25px;
+  overflow: hidden;
+  background-color: #96c3e7;
+}
+
+div.card >
+div.img::after {
+  content: '';
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  border-radius: 25px;
+  /* 设置图片模糊 */
+  backdrop-filter: blur(3px);
+}
+
+/* img */
+
+div.card >
+div.img >
+img {
+  height: 100%;
+  width: 100%;
+  scale: 1.5;
+  border-radius: 25px;
+  object-fit: contain;
+  object-position: center;
+  transition: all 0.3s;
+}
+
+/* top text */
+
+div.card >
+div.top-text {
+  padding: 5px;
+  text-align: center;
+}
+
+div.card > 
+div.top-text >
+h2 {
+  font-size: 25px;
+  font-weight: 600;
+  color: #35203e;
+}
+
+div.card > 
+div.top-text >
+p {
+  line-height: 15px;
+  font-size: 15px;
+  font-weight: 400;
+  color: #07170f;
+}
+
+/* bottom text */
+
+div.cards-row >
+div.card >
+div.bottom-text {
+  opacity: 0;
+  position: relative;
+  visibility: hidden;
+  transition: 0.4s;
+  padding: 3px 10px 10px 10px;
+  margin-top: 5px;
+  left: 0px;
+  right: 0px;
+  background: transparent;
+}
+
+div.cards-row >
+div.card >
+div.bottom-text >
+p {
+  font-size: large;
+  text-align: justify;
+  padding: 5px;
+  background-color: #82c4f9;
+  border-radius: 15px;
+}
+
+div.card >
+div.bottom-text >
+div.btn {
+  margin: 10px 20px;
+  text-align: center;
+}
+
+div.card >
+div.bottom-text >
+div.btn >
+a {
+  text-decoration: none;
+  background-color: #3e29f6;
+  color: #f2f2f2;
+  padding: 10px 8px;
+
+  border-radius: 3px;
+  display: inline-flex;
+  transition: 0.3s;
+}
+
+div.card >
+div.bottom-text >
+div.btn >
+a:hover {
+  transform: scale(1.1);
+}
+
+/* //////////////////
+//   card(hover)   // 
+////////////////// */ 
+
+/* bottom text */
+
+div.cards-row >
+div.card:hover >
+div.bottom-text {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* img */
+
+div.cards-row >
+div.card:hover >
+div.img >
+img {
+  scale: 1.0;
+  object-fit: contain;
+  object-position: center;
+}
+
+div.cards-row >
+div.card:hover >
+div.img::after {
+  backdrop-filter: unset;
+}
+
+
+@media screen and (max-width: 978px) {
+  div.cards-effects >
+  div.cards-row {
+    flex-wrap: nowrap;
+    flex-direction: column;
+    margin: 0px;
+  }
+  div.cards-row >
+  div.card {
+    max-width: 550px;
+    height: 400px;
+    margin: 20px 0px;
+  }
+  div.card >
+  div.img {
+    min-height: 300px;
+  }
+}
